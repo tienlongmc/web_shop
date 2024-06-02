@@ -49,16 +49,16 @@
                   </div>
                 
                   <div class="form-group">
-                    <label for="menu">Mô Tả</label>
+                    <label for="menu">Mô tả</label>
                    <textarea name="description"  class="form-control" id="" cols="30" rows="4"></textarea>
                   </div>
                   <div class="form-group">
-                    <label for="menu">Mô Tả Chi Tiết</label>
+                    <label for="menu">Mô tả chi tiết</label>
                     <textarea name="content" id ="content"  class="form-control" id="" cols="30" rows="4"></textarea>
                   </div>
                  
                   <div class="form-group">
-                    <label for="menu">Input Img</label>
+                    <label for="menu">Ảnh minh họa</label>
                   <input class="form-control" name="file" type="file" id="upload">
                   <div id="image_show">
 
