@@ -18,44 +18,24 @@
                     <table style="width:100%" >
                     <tr>
                         <th style="width:40%;padding: 0 20px 0 0"> 
-                            <label for="menu">Tên Sản Phẩm</label>
-                            <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Enter name">
+                            <label for="menu">Tiêu đề</label>
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Enter title">
                         </th>
                         <th style="width:40%">  
-                            <label for="menu">Danh Mục</label>
-                            <select name ="menu_id" class="form-control" id="">
-                           
-                            @foreach($menus as $menu)
-                                <option  value="{{$menu->id}}" >{{$menu->name}}</option>
-                            @endforeach
-                            </select>
+                            <label for="menu">Đường dẫn</label>
+                            <input type="text" name="url" value="{{old('url')}}" class="form-control" id="name" placeholder="Enter url">
                         </th> 
                     </tr>
                     <tr>
-                        <th style="width:40%;padding: 20px 20px 0 0"> 
-                            <div class="form-group">
-                                <label for="menu">Giá gốc: </label>
-                                <input type="number"  value="{{old('price')}}"  name="price" class="form-control" id="price">
-                            </div>
-                        </th>
-                        <th style="width:40%;padding: 20px 20px 0 0">  
-                            <div class="form-group">
-                                <label for="menu">Giá giảm: </label>
-                                <input type="number" name="price_sale"  value="{{old('price_sale')}}"  class="form-control" id="price_sale">
-                            </div>
-                        </th> 
+                        
                     </tr>
                     </table>
                   </div>
                 
                   <div class="form-group">
-                    <label for="menu">Mô tả</label>
-                   <textarea name="description" value="{{old('description')}}"  class="form-control" id="" cols="30" rows="4"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="menu">Mô tả chi tiết</label>
-                    <textarea name="content" id ="content" value="{{old('content')}}" class="form-control" id="" cols="30" rows="4"></textarea>
-                  </div>
+                    <label for="menu">Sắp xếp</label>
+                  <input class="form-control" name="sort_by" type="number" value ="{{old('sort_by')}}">
+                 
                  
                   <div class="form-group">
                     <label for="menu">Ảnh minh họa</label>
@@ -65,7 +45,7 @@
                   </div>
                   <input type="hidden" name="thumb" id="thumb">
                   </div>
-                       
+
                         <div class="form-group">
                        <label for="">Kích Hoạt</label>
                         <div class="custom-control custom-radio">
@@ -81,7 +61,7 @@
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Tạo Sản Phẩm</button>
+                  <button type="submit" class="btn btn-primary">Tạo Slider</button>
                 </div>
                 
               </form>
@@ -90,12 +70,3 @@
 @endsection
 
 @section('foot')
-<script>
-        ClassicEditor
-            .create( document.querySelector( '#content' ) )
-            .catch( error => {
-                console.error( error );
-            } );
-            
-    </script>
-@endsection

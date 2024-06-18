@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests\Product;
 
+use Exception;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Log;
 
 class ProductRequest extends FormRequest
 {
@@ -22,15 +24,18 @@ class ProductRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'=>'required',
-            // 'thump'=>'required'
+            'name'=>'required|max:255',
+            'file'=>'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
     }
     public function messages(): array
     {
         return [
             'name.required' => 'Tên sản phẩm không được để trống',
-            // 'thump.required' => 'Ảnh file không được để trống'
+           'file.required' => 'Ảnh file không được để trống và phải đúng định dạng ảnh',
+            'file.image' => 'Ảnh file  phải đúng định dạng ảnh',
+          
         ];
     }
+ 
 }

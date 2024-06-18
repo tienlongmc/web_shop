@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Services\Menu\MenuService;
 use App\Http\Services\Product\ProductAdminService;
 use Carbon\Carbon;
+use App\Models\Product;
 
 
 class ProductController extends Controller
@@ -23,6 +24,10 @@ class ProductController extends Controller
     public function index()
     {
         //
+        return view('admin.product.list',[
+            'title'=> 'Danh sách sản phẩm',
+            'product'=> $this->productService->get()
+        ]);
     }
 
     /**
@@ -52,9 +57,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product) //ten bien trung voi ten trong route
     {
         //
+        return view('admin.product.edit',
+        ['title'=>'Chỉnh Sửa Sản Phẩm',
+        'product' => $product,
+        'menus' => $this->productService ->getMenu()
+    ]);
     }
 
     /**
@@ -68,16 +78,31 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Product $product)
     {
-        //
+       $a =  $this->productService->update($request,$product);
+       if($a ==true){
+        return redirect('/admin/product/list');
+       }
+        return redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+        $result =  $this->productService->delete($request);
+        if($result ==true){
+            // Nếu xóa thành công, trả về một JSON response với thông điệp "Xóa thành công" và không có lỗi
+        return response()->json([
+            'error' => false,
+            'message' => "Xóa thành công",
+        ]);
+        // Nếu không xóa thành công, trả về một JSON response với cờ lỗi đặt thành true
+        return response()->json([
+            'error' => true,
+        ]);
     }
+}
 }

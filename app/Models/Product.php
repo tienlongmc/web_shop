@@ -18,4 +18,9 @@ class Product extends Model
         'active',
         'thumb'
     ];
+
+    // lấy id thừ bảng menu sang cho từng sản phẩm
+    public function menu(){
+        return $this->hasOne(Menu::class,'id','menu_id');
+    }
 }

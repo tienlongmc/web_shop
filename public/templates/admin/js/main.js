@@ -21,7 +21,6 @@ function RemoveRow(id, url) {
           }
       })
   }
-
 }
 
 // Upload file
