@@ -11,7 +11,7 @@ class UploadService
     {
         if ($request->hasFile('file')) {
             try {
-                $name = $request->file('file')->getClientOriginalName();
+                $name =time() . '_' . uniqid() . '.' .  $request->file('file')->getClientOriginalExtension();
                 $pathFull = 'uploads/' . date("Y/m/d");
 
                 $request->file('file')->storeAs(

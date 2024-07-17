@@ -74,6 +74,18 @@ class MenuService{
         return false;
     }
 
-    
+    public function show(){
+        return Menu::select('name','id','description')->Where('parent_id',0)->orderByDesc('id')->take(3)->get();
+    }
+    public function getID($id){
+        return Menu::where('id',$id)->where('active',1)->firstOrFail();
+    }
+    public function getProduct($menu){
+
+        return $menu->products()->select('id','name','price','price_sale','thumb')
+        ->where('active',1)
+        ->orderByDesc('id')
+        ->paginate(12);
+    }
 
 }

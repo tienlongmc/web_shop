@@ -48,20 +48,22 @@
 
                         <div class="form-group">
                        <label for="">Kích Hoạt</label>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input custom-control-input-danger" type="radio" id="active" name="active" value="1" {{$slider->active==1 ? 'checked':''}}>
+                       <div class="custom-control custom-radio">
+                          <input class="custom-control-input" value="1" type="radio" id="active" name="active"
+                              {{ $slider->active == 1 ? ' checked=""' : '' }}>
                           <label for="active" class="custom-control-label">Có</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" value="0"  id="no_active" name="active" {{$slider->active==0 ? 'checked':''}}>
-                          <label for="active" class="custom-control-label">Không</label>
-                        </div>
+                      </div>
+                      <div class="custom-control custom-radio">
+                          <input class="custom-control-input" value="0" type="radio" id="no_active" name="active"
+                              {{ $slider->active == 0 ? ' checked=""' : '' }}>
+                          <label for="no_active" class="custom-control-label">Không</label>
+                      </div>
                       </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Tạo Slider</button>
+                  <button type="submit" class="btn btn-primary">Cập nhập Slider</button>
                 </div>
                 
               </form>

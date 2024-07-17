@@ -12,6 +12,7 @@
                 <th>Danh Mục</th>
                 <th>Giá Gốc</th>
                 <th>Giá Khuyến Mại</th>
+                <th>Ảnh</th>
                 <th>Active</th>
                 <th>Update</th>
                 <th></th>
@@ -30,6 +31,9 @@
                         <td> {{$product->menu->name}}</td>
                         <td> {{$product->price}}</td>
                         <td> {{$product->price_sale}}</td>
+                        <td> <a href="{{$product->thumb}}" target="_blank">
+                            <img src="{{$product->thumb}}" height="60px" alt="">
+                        </a></td>
                         <td> {!! \App\Helper\Helper::active ($product->active) !!}</td>
                         <td>{{ $product->updated_at }}</td>
                         <td> 

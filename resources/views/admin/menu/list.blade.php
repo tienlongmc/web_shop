@@ -18,5 +18,5 @@
             {!!CustomHelper::menus($menus)!!}
         </tbody>
     </table>
-    
+   
 @endsection

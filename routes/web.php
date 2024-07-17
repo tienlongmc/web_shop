@@ -1,12 +1,15 @@
 <?php
 
 use App\Http\Controllers\Admin\MainController;
+use App\Http\Controllers\MainHomeController;
 use App\Http\Controllers\Admin\Users\LoginController;
 use App\Http\Controllers\Admin\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\UploadController;
 use App\Http\Controllers\Admin\SliderController;
+use App\Http\Controllers\ProductHomeController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +74,15 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
+//main 
+
+Route::get('/',[MainHomeController::class,'index']);
+Route::post('/services/load-product', [App\Http\Controllers\MainHomeController::class, 'loadProduct']);
+Route::get('danh-muc/{id}-{slug}.html',[App\Http\Controllers\MenuControler::class,'index']);
+Route::get('san-pham/{id}-{slug}.html',[ProductHomeController::class,'index']);
+Route::post('add-cart',[CartController::class,'index']);
+Route::get('cart',[CartController::class,'show']);
+Route::post('update-cart', [App\Http\Controllers\CartController::class, 'update']);
+Route::get('carts/delete/{id}', [App\Http\Controllers\CartController::class, 'remove']);
+Route::post('cart',[CartController::class,'addCart']);
 

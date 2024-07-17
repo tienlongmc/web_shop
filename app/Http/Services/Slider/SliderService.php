@@ -36,4 +36,22 @@ class SliderService{
         }
         return false;
     }
+    public function show(){
+        return Slider::where('active',1)->orderBy('sort_by','desc')->get();
+    }
+    public function update($request, $slider)
+    {
+        try {
+            $slider->fill($request->input());
+            $slider->save();
+            session()->flash('success', 'Cập nhật Slider thành công');
+        } catch (\Exception $err) {
+            session()->flash('error', 'Cập nhật slider Lỗi');
+            Log::info($err->getMessage());
+
+            return false;
+        }
+
+        return true;
+    }
 }

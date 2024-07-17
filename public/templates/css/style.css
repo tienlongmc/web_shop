@@ -1,0 +1,17 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&display=swap');
+
+body .ltext-102 ,
+.stext-102,
+.mtext-109
+{
+    font-family: "Playwrite AU VIC", cursive;
+    
+}
+body .wrap-slick1,
+.active-menu a, li a {
+    color: white;
+}
+body .fontne{
+    font-family: "Playwrite AU VIC", cursive;   
+}

@@ -58,4 +58,19 @@ class SliderController extends Controller
         ]);
     }
     }
+    public function update(Request $request, Slider $slider)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'thumb' => 'required',
+            'url'   => 'required'
+        ]);
+
+        $result = $this->slider->update($request, $slider);
+        if ($result) {
+            return redirect('/admin/slider/list');
+        }
+
+        return redirect()->back();
+    }
 }

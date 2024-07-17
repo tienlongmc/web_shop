@@ -33,9 +33,10 @@ class MenuController extends Controller
 
     public function index()
 {
+    $menu = Menu::orderBy('id', 'desc')->paginate(10);
     return view('admin.menu.list',[
         'title'=>'Danh sách danh mục mới nhất',
-        'menus' => $this->menuService->getAll()
+        'menus' => $menu
     ]);
 }
 public function destroy(Request $request): JsonResponse {
